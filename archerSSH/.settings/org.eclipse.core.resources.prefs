@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/archer/action/UserAction.java=gbk
+encoding//src/main/java/com/archer/core/dao/BaseDao.java=gbk
+encoding//src/main/java/com/archer/core/utils/PageResult.java=gbk
+encoding//src/main/java/com/archer/core/utils/QueryHelper.java=gbk
+encoding//src/main/java/com/archer/utils/CreateDataFile.java=gbk
+encoding//src/main/webapp/index.jsp=UTF-8

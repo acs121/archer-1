@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<bean id="code" class="com.archer.utils.ValiImg" scope="prototype"></bean>
+	<!--sessionFactory配置 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" p:configLocation="classpath:hibernate.cfg.xml"></bean>
+	<!--hibernateTemplate配置 -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate" p:sessionFactory-ref="sessionFactory"></bean>
+	<!--事物管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager" p:sessionFactory-ref="sessionFactory"></bean>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+     <!-- 事物详细定义 -->
+     <tx:advice id="serviceTx" transaction-manager="transactionManager">
+     	<tx:attributes>
+     		<tx:method name="get*" read-only="true"/>
+     		<tx:method name="find*" read-only="true"/>
+     		<tx:method name="*" rollback-for="Throwable" isolation="DEFAULT" propagation="REQUIRED" timeout="5"/>
+     	</tx:attributes>
+     </tx:advice>
+ 	<aop:config>
+<!--  	execution(* com.archer.service.*.*(..)) -->
+ 		<aop:pointcut expression="bean(*Service)" id="servicePointcut"/>
+ 		<aop:advisor advice-ref="serviceTx" pointcut-ref="servicePointcut"/>
+ 	</aop:config>    
+	
+<!-- 	调度信息配置org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean.class -->
+<!-- 	<bean id="quartzTask" class="quartzTask.MyTask"/> -->
+<!-- 	<bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"> -->
+<!-- 		<property name="targetObject" ref="quartzTask"/> -->
+<!-- 		<property name="targetMethod" value="fun"/> -->
+<!-- 		<property name="concurrent" value="false"/> -->
+<!-- 	</bean> -->
+	
+	
+	
+	
+<!-- 	自动扫描该包下的注解 -->
+	<context:component-scan base-package="com.archer.dao.impl"></context:component-scan>
+	<context:component-scan base-package="com.archer.service.impl"></context:component-scan>
+	
+</beans>
