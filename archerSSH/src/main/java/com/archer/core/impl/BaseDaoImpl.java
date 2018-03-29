@@ -20,7 +20,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	Class<T> clazz;
 	
 	public BaseDaoImpl(){
-		//��ȡ���Ͳ�����ֵ
+		//获取泛型值
 		ParameterizedType pt =  (ParameterizedType)this.getClass().getGenericSuperclass();//BaseDaoImpl<User>
 		clazz = (Class<T>)pt.getActualTypeArguments()[0];
 	}
@@ -30,16 +30,10 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>{
 	}
 	
 	
-	/**
-	 * ����ʵ��
-	 */
 	@Override
 	public void save(T entity) {
 		getHibernateTemplate().save(entity);
 	}
-	/**
-	 * ����ʵ��
-	 */
 	@Override
 	public void update(T entity) {
 		getHibernateTemplate().update(entity);
