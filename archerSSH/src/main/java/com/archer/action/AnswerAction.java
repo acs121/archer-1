@@ -64,6 +64,8 @@ public class AnswerAction implements SessionAware{
 		}
 		return "json";
 	}
+	
+	//弃用
 	public String getAnsOnlyDataById() {
 		jsonData=new HashMap<String, Object>();
 		User u=(User) session.get("user");

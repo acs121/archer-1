@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 选项信息（配合highcharts的格式）
  * @author Kunjin Guo
  */
 public class Option {
