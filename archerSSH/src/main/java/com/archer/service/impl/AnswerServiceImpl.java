@@ -40,7 +40,6 @@ public class AnswerServiceImpl extends BaseServiceImpl<Answer> implements Answer
 
 	@Override
 	public List getAnswerDataByQid(User u, Questionnaire q, Answer ans) {
-		InputStream in;
 		Integer type = null;
 		if(q!=null&&ans.getQid()>0) {
 			JSONArray ja=JSONArray.fromObject(q.getQuestionnaire_content());
@@ -58,6 +57,11 @@ public class AnswerServiceImpl extends BaseServiceImpl<Answer> implements Answer
 		ret.add(type);
 		ret.add(l);
 		return ret;
+	}
+	@Override
+	public List getAnswerGroupByQid(User u, Questionnaire q, Answer ans) {
+		List l=answerDao.getAnswerGroupByQid(q, ans);
+		return l;
 	}
 
 	

@@ -4,7 +4,8 @@
 * @Last Modified by:   Administrator
 * @Last Modified time: 2017-05-15 15:30:38
 */
-
+var encrypt = new JSEncrypt();
+encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCqnWSmR+UbmzbAg2O2DA3fmDdnXLd5jdm4m8eMcHQre2UIF0zm/mTr+ESM1vfRH+FxEQpeHN+L3XrFkUGHepkoPEYV7s5cJZggnb/f5cvloTe2xE7f/t/3qRkMo8gOwqmQIir/qAntW64H/qjJzP6tyBU/NohDC5AUVmeiUM3bcwIDAQAB");
 $(document).ready(function() {
 	// 登陆获取验证码
 	$("#authcode-one").focus(function(){
@@ -73,7 +74,7 @@ $(document).ready(function() {
 					  	'authCode': $("#authcode-two").val(),
 					  	'user.username': $("#email-two").val(),
 					  	'user.nickname': $("#nikename").val(),
-					  	'user.password': $("#password-two").val()
+					  	'user.password': encrypt.encrypt($("#password-two").val())
 					  },
 					  success: function(data){
 					  	//  注册
@@ -101,7 +102,7 @@ $(document).ready(function() {
 		  data: {
 		  	'authCode': $("#authcode-one").val(),
 		  	'user.username': $("#email-one").val(),
-		  	'user.password': $("#password-one").val()
+		  	'user.password': encrypt.encrypt($("#password-one").val())
 		  },
 		  success: function(data){
 		  	//  注册

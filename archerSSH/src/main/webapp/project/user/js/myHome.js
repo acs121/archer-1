@@ -384,7 +384,7 @@ $("#recycle").click(function(){
 			  //  查看数据分析
 			  $(".dataAnalysis").click(function(){
 				var questionnaire_id=$(this).parent().prev().val();
-				window.open("data.html?id="+questionnaire_id);
+				window.open("dataHighCharts.html?id="+questionnaire_id);
 			  });
 			},
 			error: function(){

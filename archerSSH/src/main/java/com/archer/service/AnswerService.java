@@ -23,5 +23,13 @@ public interface AnswerService extends BaseService<Answer>{
 	 * @return list.get(0)--(int)type list.get(1)-List ansList
 	 */
 	public List getAnswerDataByQid(User u,Questionnaire q,Answer ans) ;
+
+	/**
+	 * @param u
+	 * @param q
+	 * @param ans
+	 * @return
+	 */
+	List getAnswerGroupByQid(User u, Questionnaire q, Answer ans);
 	
 }

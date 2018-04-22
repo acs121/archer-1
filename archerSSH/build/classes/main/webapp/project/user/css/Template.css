@@ -1,0 +1,92 @@
+/*
+* @Author: Administrator
+* @Date:   2017-05-15 15:47:35
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-05-15 16:28:52
+*/
+.collection {
+	display: none;
+}
+
+.container {
+	margin-top: 30px;
+}
+
+.container .row .s4 {
+	width: 300px;
+	margin-right: 40px;
+}
+
+.container .row .s4 .darken-1 {
+	height: 180px;
+}
+
+.card {
+	background: #D2CFCF;
+}
+
+.material-icons {
+	font-size: 25px;
+	cursor: pointer;
+	position:relative;
+	z-index:2;
+}
+
+.material-icons:hover span {
+	display:block;
+	font-size: 15px;
+	position:absolute;
+	top:51px;
+	width:70px;
+	height: 25px;
+	border:1px solid #E5ACAC;
+	background-color:#E5ACAC;
+	padding: 3px;
+	border-radius: 3px;
+}
+
+.btn {
+	background: #CF9696;
+}
+
+#quit {
+	color: #EAA2A2;
+	cursor: pointer;
+}
+
+#quit:hover {
+	background: #F1C7C7;
+	color: #FFF;
+}
+
+#quit:hover:after {
+	background: #FFF;
+	color: #EAA2A2;
+}
+
+#myHome {
+	color: #EAA2A2;
+	cursor: pointer;
+}
+
+#myHome:hover {
+	background: #F1C7C7;
+	color: #FFF;
+}
+
+#myHome:hover:after {
+	background: #FFF;
+	color: #EAA2A2;
+}
+
+.contentMake {
+	color: #FFF;
+	position: absolute;
+	top:140px;
+}
+
+.warn {
+	display: none;
+	color: #FFF;
+	padding: 5px;
+}

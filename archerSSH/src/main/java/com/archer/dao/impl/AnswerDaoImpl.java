@@ -40,5 +40,10 @@ public class AnswerDaoImpl extends BaseDaoImpl<Answer> implements AnswerDao{
 		query.setParameter(1, q.getId());
 		return query.list();
 	}
-	
+	public List getAnswerGroupByQid(Questionnaire q, Answer ans) {
+		Query query=currentSession().createQuery("select st,count(*) from Answer ans where ans.qid=? AND ans.questionnaire.id=? group by ans.st");
+		query.setParameter(0, ans.getQid());
+		query.setParameter(1, q.getId());
+		return query.list();
+	}
 }

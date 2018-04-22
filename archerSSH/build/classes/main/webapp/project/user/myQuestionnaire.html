@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../common/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="css/writeQst.css">
+    </head>
+    <body>
+		<div class="navbar-fixed">
+			<nav>
+			  <div class="nav-wrapper">
+				<a href="myHome.html" class="brand-logo">爱问卷</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+				  <li><a id="nickName"></a></li>
+				  <li><a> </a></li>
+				</ul>
+			  </div>
+			</nav>
+		  </div>
+    	<div class="container">
+				<!-- 导航 -->
+		  
+		  
+	      <div class="row">
+	        <div class="col s12">
+	          <div class="card darken-1">
+	            <div class="card-content white-text">
+	            	<div id="title">
+	            		<span class="card-title" id="questionTitle">你的问卷题目</span>
+	              	<p id="discribe">你加的一些描述</p>
+	            	</div>
+	            	<div id="content">
+	            	</div>
+	            	<div id="submit">
+                        <a class="waves-effect waves-light btn" id="return">返回</a>
+	            	</div>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+    	</div>
+    	<!-- 提示框 -->
+      <div class="modalSubmit">
+        <a class="waves-effect waves-light btn" id="question-submit-yes">是</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="waves-effect waves-light btn" id="question-submit-no">否</a>
+      </div>
+    </body>
+    <script type="text/javascript" src="../common/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="../common/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../common/layer/layer.js"></script>
+    <script type="text/javascript" src="../common/js/common.js"></script>
+    <script type="text/javascript" src="js/myQuestionnaire.js"></script>
+</html>

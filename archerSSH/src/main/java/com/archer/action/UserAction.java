@@ -11,6 +11,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.archer.model.User;
 import com.archer.service.UserService;
+import com.archer.utils.RSAUtil;
 import com.archer.utils.ValiImg;
 
 public class UserAction implements SessionAware{
@@ -48,13 +49,15 @@ public class UserAction implements SessionAware{
 	 * 参数需要：user.username、user.password、user.nickname、authCode<br>
 	 * 
 	 * @return json数据 jsonData
+	 * @throws Exception 
 	 */
-	public String regist(){
+	public String regist() throws Exception{
 		jsonData=new HashMap<String, Object>();
 		//验证数据是否为空
 		String registCode=(String) session.get("registCode");
 		if(authCode!=null&&registCode!=null&&registCode.equalsIgnoreCase(authCode)){
 			if(user.getNickname()!=null&&user.getPassword()!=null&&user.getUsername()!=null){
+				user.setPassword(RSAUtil.base64DecryptString(user.getPassword()));
 				//如果数据库中不存在用户，则允许注册
 				if(userService.findObjectById(user.getUsername())==null){
 					userService.save(user);
@@ -83,12 +86,14 @@ public class UserAction implements SessionAware{
 	 * 参数需要：user.username、user.password、authCode<br>
 	 * 
 	 * @return json数据 jsonData 在session中添加user信息
+	 * @throws Exception 
 	 */
-	public String login(){
+	public String login() throws Exception{
 		jsonData=new HashMap<String, Object>();
 		String loginCode=(String) session.get("loginCode");
 		if(authCode!=null&&loginCode!=null&&loginCode.equalsIgnoreCase(authCode)){
 			if(user.getUsername()!=null&&user.getPassword()!=null){
+				user.setPassword(RSAUtil.base64DecryptString(user.getPassword()));
 				//用户不存在
 				if((user=userService.findObjectById(user.getUsername()))==null){
 					jsonData.put("status", false);

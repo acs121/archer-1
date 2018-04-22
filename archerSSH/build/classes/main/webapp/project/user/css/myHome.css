@@ -1,0 +1,215 @@
+/*
+* @Author: Administrator
+* @Date:   2017-04-01 20:15:04
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-05-15 15:38:32
+*/
+.nav-wrapper div{
+	text-align: center;
+	float: left;
+	width:15%;
+    border-radius: 30px;
+}
+#noPublishQues{
+	margin-left: 20%; 
+}
+.strongDiv{
+    font-size: 25px;
+    background: rgba(113, 39, 39, 0.56);
+}
+.container {
+	margin-top: 30px;
+}
+.container .row .s4 {
+	width: 300px;
+}
+
+.container .row .s4 .darken-1 {
+	height: 180px;
+}
+
+.card {
+	background: #D2CFCF;
+}
+
+.contentMake {
+	color: #FFF;
+	position: absolute;
+	top:140px;
+}
+
+.material-icons {
+	font-size: 25px;
+	cursor: pointer;
+	position:relative;
+	z-index:2;
+}
+
+.addButton {
+	position:relative;
+	z-index:2;
+}
+
+.addButton:hover {
+	z-index:3;
+	background:none; /*没有这个在IE中不可用*/
+}
+
+.material-icons:hover {
+	color: #E5ACAC;
+	z-index:3;
+	background:none; /*没有这个在IE中不可用*/
+}
+
+.warn {
+	display: none;
+	color: #FFF;
+	padding: 5px;
+}
+
+.material-icons:hover span {
+	display:block;
+	font-size: 15px;
+	position:absolute;
+	top:51px;
+	width:70px;
+	height: 25px;
+	border:1px solid #E5ACAC;
+	background-color:#E5ACAC;
+	padding: 3px;
+	border-radius: 3px;
+}
+
+.addButton:hover span {
+	display:block;
+	font-size: 15px;
+	position:absolute;
+	top:101px;
+	width:70px;
+	height: 25px;
+	border:1px solid #E5ACAC;
+	background-color:#E5ACAC;
+	padding: 3px;
+	border-radius: 3px;
+}
+
+.newAdd {
+	text-align: center;
+	font-size: 50px;
+}
+
+.newAdd i {
+	padding-top: 30px;
+}
+
+.modalDel {
+	display: none;
+	z-index: 1;
+}
+
+body .demo-class1 .layui-layer-content {
+    text-align: center;
+}
+
+body .demo-class1 .layui-layer-content a {
+    top: 30px;
+}
+
+.btn {
+	background: #CF9696;
+}
+
+.btn:hover {
+	background: #EF8080;
+}
+#QpageNo{
+	padding: 1px 6px;
+	float : left;  
+	margin-top: 11px;
+}
+#totalPageCount{
+	padding: 1px 6px;
+	float : left;
+	margin-top: 11px;
+}
+#totalCount{
+	padding: 1px 6px;
+	float : left;
+	margin-top: 11px;
+}
+#aimPage{
+	width:50px;
+    border-bottom: 0px solid #9e9e9e;
+}
+#pageSize{
+	width:30px;
+    border-bottom: 0px solid #9e9e9e;
+}
+#quit {
+	color: #EAA2A2;
+	cursor: pointer;
+}
+
+#recycle {
+	color: #EAA2A2;
+	cursor: pointer;
+}
+
+#quit:hover {
+	background: #F1C7C7;
+	color: #FFF;
+}
+
+#recycle:hover {
+	background: #F1C7C7;
+	color: #FFF;
+}
+
+#quit:hover:after {
+	background: #FFF;
+	color: #EAA2A2;
+}
+
+#recycle:hover:after {
+	background: #FFF;
+	color: #EAA2A2;
+}
+
+#Template {
+	color: #EAA2A2;
+	cursor: pointer;
+}
+
+#Template:hover {
+	background: #F1C7C7;
+	color: #FFF;
+}
+
+#Template:hover:after {
+	background: #FFF;
+	color: #EAA2A2;
+}
+
+.collection {
+	display: none;
+}
+
+.recycle {
+	display: none;
+}
+
+tr {
+	height: 30px;
+}
+
+.recycleDel,.recover {
+	color: #EAA2A2;
+}
+
+.recycleDelete {
+	display: none;
+}
+
+.recoverModal {
+	display: none;
+}

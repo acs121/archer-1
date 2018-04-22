@@ -1,0 +1,84 @@
+/*
+* @Author: Administrator
+* @Date:   2017-04-15 21:39:14
+* @Last Modified by:   Administrator
+* @Last Modified time: 2017-04-16 14:38:12
+*/
+#quit {
+	color: #EAA2A2;
+	cursor: pointer;
+}
+
+#quit:hover {
+	background: #F1C7C7;
+	color: #FFF;
+}
+
+#quit:hover:after {
+	background: #FFF;
+	color: #EAA2A2;
+}
+
+.collection {
+	display: none;
+}
+
+.title {
+	margin-top: 50px;
+	text-align: center;
+	font-size: 25px;
+	color: #A9A3A3;
+}
+
+.num {
+	float: left;
+	font-size: 20px;
+	color: #A9A3A3;
+}
+
+.childTitle {
+	font-size: 20px;
+	color: #A9A3A3;
+}
+.select {
+	margin-left: 20px;
+}
+.select li{
+	font-size: 15px;
+	color: #A9A3A3;
+}
+
+.link {
+	cursor: pointer;
+	color: #D09999;
+}
+
+.container {
+	margin-bottom: 50px;
+}
+
+.export {
+	display: none;
+}
+
+body .demo-class1 .layui-layer-content {
+    text-align: center;
+}
+
+body .demo-class1 .layui-layer-content a {
+    position: relative;
+    top: 30px;
+}
+
+.btn {
+	background: #CF9696;
+}
+
+.btn:hover {
+	background: #EF8080;
+}
+
+.imgStyle {
+	width:50%;
+	height: 50%;
+}

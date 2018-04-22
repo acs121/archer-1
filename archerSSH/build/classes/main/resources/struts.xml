@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"  
+    "http://struts.apache.org/dtds/struts-2.5.dtd">  
+<struts>  
+
+    <constant name="struts.devMode" value="true" />  
+    <constant name="struts.i18n.reload" value="true" />  
+    <constant name="struts.configuration.xml.reload" value="true" ></constant>  
+
+    <package name="default" namespace="/" extends="json-default"> 
+    	<interceptors>
+    		<interceptor name="userInterceptor" class="com.archer.interceptor.UserInterceptor">
+    			<param name="excludeMethods">login,regist,codeImg,getPublishQues,commit</param>
+    		</interceptor>
+    		<interceptor-stack name="defaultInterceptor">
+    			<interceptor-ref name="userInterceptor"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    	</interceptors>
+    	<default-interceptor-ref name="defaultInterceptor"></default-interceptor-ref>
+        <global-results>  
+            <result name="error">/error.jsp</result>
+            <result name="index" type="redirect">/project/user/index.html</result>
+            <result name="json" type="json">
+				<param name="root">jsonData</param>
+			</result>
+			<result name="png" type="stream">
+				<param name="contentType">image/png</param>
+				<param name="inputName">source</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="xlsx" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="inputName">source</param>
+				<param name="contentDisposition">filename=${filename}</param>
+				<param name="bufferSize">4096</param>
+			</result>
+        </global-results>  
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+        <global-exception-mappings>  
+            <exception-mapping exception="java.lang.Exception" result="error"/>  
+        </global-exception-mappings>
+        
+        <action name="user_*" class="com.archer.action.UserAction" method="{1}">
+    		
+    	</action>
+    	<action name="ques_*" class="com.archer.action.QuestionnaireAction" method="{1}">
+    	</action>
+    	
+    	<action name="ans_*" class="com.archer.action.AnswerAction" method="{1}">
+    	</action>
+    	<action name="*">
+    		<result type="redirect">/project/user/index.html</result>
+    	</action>
+    	
+    </package>  
+</struts> 

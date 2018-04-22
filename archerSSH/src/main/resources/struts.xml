@@ -38,9 +38,9 @@
 			</result>
         </global-results>  
 		<global-allowed-methods>regex:.*</global-allowed-methods>
-        <global-exception-mappings>  
-            <exception-mapping exception="java.lang.Exception" result="error"/>  
-        </global-exception-mappings>
+<!--         <global-exception-mappings>   -->
+<!--             <exception-mapping exception="java.lang.Exception" result="error"/>   -->
+<!--         </global-exception-mappings> -->
         
         <action name="user_*" class="com.archer.action.UserAction" method="{1}">
     		

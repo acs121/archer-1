@@ -2,15 +2,18 @@ package com.archer.action;
 
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.annotation.Resource;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.archer.model.Answer;
+import com.archer.model.Option;
 import com.archer.model.Questionnaire;
 import com.archer.model.User;
 import com.archer.service.AnswerService;
@@ -61,7 +64,28 @@ public class AnswerAction implements SessionAware{
 		}
 		return "json";
 	}
-
+	public String getAnsOnlyDataById() {
+		jsonData=new HashMap<String, Object>();
+		User u=(User) session.get("user");
+		if(q!=null&&ans!=null) { 
+			q=questionnaireService.findObjectById(q.getId());
+			if(q!=null&&q.getUser().equals(u)) {
+				List type_ansList=answerService.getAnswerDataByQid(u, q,ans);
+				Map<Integer, Integer> ansMap = QuestionnaireUtils.getAnsMap((List<String>) type_ansList.get(1));
+				
+				HashMap<String, String> title=new HashMap<String,String>();
+				title.put("text", "第"+ans.getQid()+"题");
+				jsonData.put("title", title);
+				List<Option> series=new ArrayList<Option>();
+				for (Entry<Integer, Integer> i : ansMap.entrySet()) {
+					Option o=new Option((char)('A'+i.getKey()-1)+"", i.getValue());
+					series.add(o);
+				}
+				jsonData.put("series", series);
+			}
+		}
+		return "json";
+	}
 	/***
 	 * 提交答卷
 	 * params:q.id、answer_list

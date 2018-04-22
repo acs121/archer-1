@@ -10,4 +10,5 @@ public interface AnswerDao extends BaseDao<Answer>{
 	public void removeFromQuestionnaire(Questionnaire q);
 	public void collectAnswer(List<String> ans,Questionnaire q);
 	public List getAnswerListByQid(Questionnaire q,Answer ans);
+	public List getAnswerGroupByQid(Questionnaire q, Answer ans);
 }

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/project/user/index.html"><h2>Archer问卷</h2></a>
+<a href="project/user/index.html"><h2>Archer问卷</h2></a>
 
 </body>
 </html>
